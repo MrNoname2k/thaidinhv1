@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thái Đinh Store - {% block title %}{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icons8-locks-32.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-theme9.css' %}">
+</head>
+<body>
+    <div class="form-body" class="container-fluid">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Sử dụng nhiều chức năng hơn khi đăng nhập.</h3>
+                    <p>Đăng nhập hoặc đăng ký để giữ liên lạc và kết nối tốt hơn với shop.</p>
+                    <img src="{% static 'images/graphic5.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="{% static 'images/logo-light.svg' %}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="page-links">
+                            <a href="{% url 'login' %}" class="active">Đăng nhập</a><a href="{% url 'register' %}">Đăng ký</a>
+                        </div>
+                        {% block content %}{% endblock content %}
+                        <div class="other-links">
+                            <span>Hoặc đăng nhập với</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/popper.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
