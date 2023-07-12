@@ -491,30 +491,13 @@
                 <div class="offcanvas-navigation__top">
                     <ul class="offcanvas-menu">
                         <li class="has-children">
-                            <a href="#">
-                                <span class="mm-text">Home</span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="has-children">
-                                    <a href="index.html">
-                                        <span class="mm-text">Home One</span>
-                                    </a>
-                                </li>
-                                <li class="has-children">
-                                    <a href="index-02.html">
-                                        <span class="mm-text">Home Two</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="shop.html">
-                                <span class="mm-text">New Arrivals</span>
+                            <a href="{% url 'home' %}">
+                                <span class="mm-text">Trang chủ</span>
                             </a>
                         </li>
                         <li class="has-children">
                             <a href="#">
-                                <span class="mm-text">Shop</span>
+                                <span class="mm-text">Cửa hàng</span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="has-children">
@@ -672,46 +655,60 @@
                         </li>
                         <li class="has-children">
                             <a href="#">
-                                <span class="mm-text">Pages</span>
+                                <span class="mm-text">Tài khoản</span>
                             </a>
                             <ul class="sub-menu">
+                                {% if request.user.is_authenticated %}
                                 <li>
                                     <a href="my-account.html">
-                                        <span class="mm-text">My Account</span>
+                                        <span class="mm-text">Thông tin</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="checkout.html">
-                                        <span class="mm-text">Checkout</span>
+                                        <span class="mm-text">Thanh toán</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="cart.html">
-                                        <span class="mm-text">Cart</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="compare.html">
-                                        <span class="mm-text">Compare</span>
+                                        <span class="mm-text">Giỏ hàng</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="order-tracking.html">
-                                        <span class="mm-text">Track Order</span>
+                                        <span class="mm-text">Kiểm tra đơn hàng</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.html">
-                                        <span class="mm-text">Wishlist</span>
+                                    <a href="{% url 'logout' %}">
+                                        <span class="mm-text">Đăng xuất</span>
                                     </a>
                                 </li>
+                                {% else %}
+                                <li>
+                                    <a href="{% url 'register' %}">
+                                        <span class="mm-text">Đăng ký</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'login' %}">
+                                        <span class="mm-text">Đăng nhập</span>
+                                    </a>
+                                </li>
+                                {% endif %}
                             </ul>
                         </li>
                         <li>
                             <a href="contact-us.html">
-                                <span class="mm-text">Contact Us</span>
+                                <span class="mm-text">Liên hệ</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="shop.html">
+                                <span class="mm-text">Tài khoản</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
