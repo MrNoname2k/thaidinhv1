@@ -3,7 +3,7 @@
         {
             "src": "thai_dinh_store_v2/wsgi.py",
             "use": "@vercel/python",
-            "config": {"maxLambdaSize": "15mb","runtime": "python3.11"}
+            "config": {"maxLambdaSize": "15mb","runtime": "python3.10"}
         }
     ],
     "routes":[
