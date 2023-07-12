@@ -9,16 +9,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="https://thaidinhgroup.onrender.com/static/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://thaidinhgroup.onrender.com/static/assets/img/icon.png">
+    <link rel="shortcut icon" href="{% static '/assets/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static '/assets/img/icon.png' %}">
 
     <!-- ************************* CSS Files ************************* -->
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="https://thaidinhgroup.onrender.com/static/assets/css/vendor.css">
+    <link rel="stylesheet" href="{% static '/assets/css/vendor.css' %}">
 
     <!-- style css -->
-    <link rel="stylesheet" href="https://thaidinhgroup.onrender.com/static/assets/css/main.css">
+    <link rel="stylesheet" href="{% static '/assets/css/main.css' %}">
 </head>
 
 <body>
@@ -44,10 +44,10 @@
                             <div class="header__col header__left">
                                 <a href="index.html" class="logo">
                                     <figure class="logo--normal">
-                                        <img src="https://thaidinhgroup.onrender.com/static/assets/img/logo/logo.png" alt="Logo">
+                                        <img src="{% static '/assets/img/logo/logo.png' %}" alt="Logo">
                                     </figure>
                                     <figure class="logo--transparency">
-                                        <img src="https://thaidinhgroup.onrender.com/static/assets/img/logo/logo.png" alt="Logo">
+                                        <img src="{% static '/assets/img/logo/logo.png' %}" alt="Logo">
                                     </figure>
                                 </a>
                             </div>
@@ -295,7 +295,7 @@
                         <div class="footer-widget">
                             <div class="textwidget">
                                 <figure class="footer-logo mb--10">
-                                    <img src="https://thaidinhgroup.onrender.com/static/assets/img/logo/logo.png" alt="Logo">
+                                    <img src="assets/img/logo/logo.png" alt="Logo">
                                 </figure>
                             </div>
                             <div class="address-widget">
@@ -491,13 +491,30 @@
                 <div class="offcanvas-navigation__top">
                     <ul class="offcanvas-menu">
                         <li class="has-children">
-                            <a href="{% url 'home' %}">
-                                <span class="mm-text">Trang chủ</span>
+                            <a href="#">
+                                <span class="mm-text">Home</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="has-children">
+                                    <a href="index.html">
+                                        <span class="mm-text">Home One</span>
+                                    </a>
+                                </li>
+                                <li class="has-children">
+                                    <a href="index-02.html">
+                                        <span class="mm-text">Home Two</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop.html">
+                                <span class="mm-text">New Arrivals</span>
                             </a>
                         </li>
                         <li class="has-children">
                             <a href="#">
-                                <span class="mm-text">Cửa hàng</span>
+                                <span class="mm-text">Shop</span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="has-children">
@@ -655,60 +672,46 @@
                         </li>
                         <li class="has-children">
                             <a href="#">
-                                <span class="mm-text">Tài khoản</span>
+                                <span class="mm-text">Pages</span>
                             </a>
                             <ul class="sub-menu">
-                                {% if request.user.is_authenticated %}
                                 <li>
                                     <a href="my-account.html">
-                                        <span class="mm-text">Thông tin</span>
+                                        <span class="mm-text">My Account</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="checkout.html">
-                                        <span class="mm-text">Thanh toán</span>
+                                        <span class="mm-text">Checkout</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="cart.html">
-                                        <span class="mm-text">Giỏ hàng</span>
+                                        <span class="mm-text">Cart</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="compare.html">
+                                        <span class="mm-text">Compare</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="order-tracking.html">
-                                        <span class="mm-text">Kiểm tra đơn hàng</span>
+                                        <span class="mm-text">Track Order</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'logout' %}">
-                                        <span class="mm-text">Đăng xuất</span>
+                                    <a href="wishlist.html">
+                                        <span class="mm-text">Wishlist</span>
                                     </a>
                                 </li>
-                                {% else %}
-                                <li>
-                                    <a href="{% url 'register' %}">
-                                        <span class="mm-text">Đăng ký</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'login' %}">
-                                        <span class="mm-text">Đăng nhập</span>
-                                    </a>
-                                </li>
-                                {% endif %}
                             </ul>
                         </li>
                         <li>
                             <a href="contact-us.html">
-                                <span class="mm-text">Liên hệ</span>
+                                <span class="mm-text">Contact Us</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="shop.html">
-                                <span class="mm-text">Tài khoản</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -730,7 +733,7 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-11-90x90.jpg" alt="products">
+                                    <img src="assets/img/products/product-11-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
                                     <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
@@ -742,7 +745,7 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-12-90x90.jpg" alt="products">
+                                    <img src="assets/img/products/product-12-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
                                     <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
@@ -754,7 +757,7 @@
                                     <i class="flaticon-cross"></i>
                                 </a>
                                 <div class="mini-cart__product-image">
-                                    <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-13-90x90.jpg" alt="products">
+                                    <img src="assets/img/products/product-13-90x90.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product-content">
                                     <a class="mini-cart__product-title" href="product-details.html">Lexbaro Begadi</a>
@@ -795,25 +798,25 @@
                                 }'>
                                     <div class="item">
                                         <figure class="product-gallery__image">
-                                            <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-03-270x300.jpg" alt="Product">
+                                            <img src="assets/img/products/product-03-270x300.jpg" alt="Product">
                                             <span class="product-badge sale">Sale</span>
                                         </figure>
                                     </div>
                                     <div class="item">
                                         <figure class="product-gallery__image">
-                                            <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-04-270x300.jpg" alt="Product">
+                                            <img src="assets/img/products/product-04-270x300.jpg" alt="Product">
                                             <span class="product-badge sale">Sale</span>
                                         </figure>
                                     </div>
                                     <div class="item">
                                         <figure class="product-gallery__image">
-                                            <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-05-270x300.jpg" alt="Product">
+                                            <img src="assets/img/products/product-05-270x300.jpg" alt="Product">
                                             <span class="product-badge sale">Sale</span>
                                         </figure>
                                     </div>
                                     <div class="item">
                                         <figure class="product-gallery__image">
-                                            <img src="https://thaidinhgroup.onrender.com/static/assets/img/products/product-06-270x300.jpg" alt="Product">
+                                            <img src="assets/img/products/product-06-270x300.jpg" alt="Product">
                                             <span class="product-badge sale">Sale</span>
                                         </figure>
                                     </div>
@@ -920,10 +923,10 @@
     <!-- ************************* JS Files ************************* -->
 
     <!-- jQuery JS -->
-    <script src="https://thaidinhgroup.onrender.com/static/assets/js/vendor.js"></script>
+    <script src="{% static '/assets/js/vendor.js' %}"></script>
 
     <!-- Main JS -->
-    <script src="https://thaidinhgroup.onrender.com/static/assets/js/main.js"></script>
+    <script src="{% static '/assets/js/main.js' %}"></script>
 </body>
 
 </html>
